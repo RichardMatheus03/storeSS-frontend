@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom"
 
-import Sidebar from "./components/Sidebar"
+import Sidebar from "./components/Sidebar/Sidebar"
 
 export default function Layout() {
     return (
@@ -9,7 +9,7 @@ export default function Layout() {
 
       <Sidebar />
 
-      <main className="tw-flex-1 tw-p-4">
+      <main className="tw-flex-1 tw-h-screen tw-w-screen">
         <Outlet />
       </main>
       

@@ -20,11 +20,9 @@ import HomeIcon from '@mui/icons-material/Home';
 import PeopleIcon from '@mui/icons-material/People';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
-import tailwindConfig from '../../tailwind.config.js';
+import tailwindConfig from '../../../tailwind.config.js';
 
-const primaryColor = tailwindConfig.theme.extend.colors.primary[500]; // Obtém a cor primária definida no Tailwind
-
-console.log(tailwindConfig)
+const primaryColor = tailwindConfig.theme.extend.colors.primary[200]; // Obtém a cor primária definida no Tailwind
 
 const drawerWidth = 240;
 
@@ -98,7 +96,7 @@ export default function Sidebar() {
 
   // Ícones e textos de exemplo para a lista
   const menuItems = [
-    { text: 'Início', icon: <HomeIcon />, link: '/' },
+    { text: 'Início', icon: <HomeIcon />, link: '/', function: handleDrawerClose },
     { text: 'Caixa de Entrada', icon: <InboxIcon /> },
     { text: 'Feed', icon: <PeopleIcon />, link: 'feed' },
     { text: 'E-mails', icon: <MailIcon /> },
@@ -107,7 +105,11 @@ export default function Sidebar() {
   return (
     <Box sx={{ display: 'flex' }} onMouseEnter={handleDrawerOpen} onMouseLeave={handleDrawerClose}>
       <CssBaseline />
-      <Drawer variant="permanent" open={open}>
+      <Drawer variant="permanent" open={open} sx={{
+        '& .MuiDrawer-paper': {
+          backgroundColor: primaryColor,
+        }
+      }}>
         <DrawerHeader>
           <ListItemText primary="Menu" sx={{
             opacity: open ? 1 : 0,
@@ -120,7 +122,14 @@ export default function Sidebar() {
         <Divider />
         <List>
           {menuItems.map((item, index) => (
-            <ListItem key={item.text} disablePadding sx={{ display: 'block' }} component={ item.link ? Link : 'div'} to={ item.link ? item.link : '#'  }>
+            <ListItem 
+              key={item.text} 
+              disablePadding 
+              sx={{ display: 'block' }} 
+              component={ item.link ? Link : 'div'} 
+              to={ item.link ? item.link : '#'  }
+              onClick={item.function}
+            >
               <ListItemButton
                 sx={{
                   minHeight: 48,
