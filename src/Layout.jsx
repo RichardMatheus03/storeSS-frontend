@@ -9,7 +9,7 @@ export default function Layout() {
 
       <Sidebar />
 
-      <main className="tw-flex-1 tw-h-screen tw-w-screen">
+      <main className="tw-flex-1 tw-h-screen tw-w-screen tw-overflow-hidden">
         <Outlet />
       </main>
       

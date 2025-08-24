@@ -19,6 +19,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import HomeIcon from '@mui/icons-material/Home';
 import PeopleIcon from '@mui/icons-material/People';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import PaymentIcon from '@mui/icons-material/Payment';
 
 import tailwindConfig from '../../../tailwind.config.js';
 
@@ -97,7 +98,7 @@ export default function Sidebar() {
   // Ícones e textos de exemplo para a lista
   const menuItems = [
     { text: 'Início', icon: <HomeIcon />, link: '/', function: handleDrawerClose },
-    { text: 'Caixa de Entrada', icon: <InboxIcon /> },
+    { text: 'Cadastrar gasto', icon: <PaymentIcon />, link: '/cadastrar-gasto' },
     { text: 'Feed', icon: <PeopleIcon />, link: 'feed' },
     { text: 'E-mails', icon: <MailIcon /> },
   ];
