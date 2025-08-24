@@ -5,11 +5,11 @@ import Sidebar from "./components/Sidebar/Sidebar"
 export default function Layout() {
     return (
 
-    <div className="tw-flex">
+    <div className="tw-flex tw-w-screen tw-h-screen">
 
       <Sidebar />
 
-      <main className="tw-flex-1 tw-h-screen tw-w-screen tw-overflow-hidden">
+      <main className="tw-flex-1 tw-h-100 tw-w-100 tw-overflow-hidden">
         <Outlet />
       </main>
       
